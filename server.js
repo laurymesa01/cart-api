@@ -4,6 +4,7 @@ const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
+
 // Permite usar el puerto asignado por la plataforma de despliegue
 const PORT = process.env.PORT || 3000;
 
@@ -12,6 +13,11 @@ server.use(middlewares);
 
 // Permite recibir datos en formato JSON
 server.use(jsonServer.bodyParser);
+
+
+server.get("/favicon.ico", (req, res) => {
+  res.status(204).end(); // Sin contenido
+});
 
 // Ruta de prueba para verificar que la API funciona
 server.get("/", (req, res) => {
