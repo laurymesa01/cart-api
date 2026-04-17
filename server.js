@@ -13,6 +13,7 @@ server.use(middlewares);
 
 // Permite recibir datos en formato JSON
 server.use(jsonServer.bodyParser);
+server.use("/images", jsonServer.static("public/images"));
 
 
 server.get("/favicon.ico", (req, res) => {
