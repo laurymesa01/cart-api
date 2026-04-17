@@ -1,4 +1,6 @@
 const jsonServer = require("json-server");
+const express = require("express");
+
 
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
@@ -13,7 +15,7 @@ server.use(middlewares);
 
 // Permite recibir datos en formato JSON
 server.use(jsonServer.bodyParser);
-server.use("/images", jsonServer.static("public/images"));
+server.use("/images", express.static("public/images"));
 
 
 server.get("/favicon.ico", (req, res) => {
